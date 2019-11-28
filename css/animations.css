@@ -13,11 +13,15 @@
 /*SLIDER IMG*/
 
 .slider.img1 {
-    animation: sliderimg 5s infinite;
+    animation: sliderimg 10s infinite;
 }
 
 @keyframes sliderimg {
     0% {
+        opacity: 0;
+    }
+
+    2% {
         opacity: 0;
     }
 
@@ -29,6 +33,10 @@
         opacity: 1;
     }
 
+    98% {
+        opacity: 0;
+    }
+
     100% {
         opacity: 0;
     }
@@ -38,11 +46,15 @@
 /*SLIDER TXT*/
 
 .slider-text {
-    animation: slidertxt 5s infinite;
+    animation: slidertxt 10s infinite;
 }
 
 @keyframes slidertxt {
     0% {
+        opacity: 0;
+    }
+
+    2% {
         opacity: 0;
     }
 
@@ -54,7 +66,7 @@
         opacity: 1;
     }
 
-    95% {
+    93% {
         opacity: 0;
     }
 
@@ -66,7 +78,7 @@
 /*SLIDER AFTER*/
 
 .slider-text h1::after {
-    animation: after 15s infinite;
+    animation: after 30s infinite;
 }
 
 @keyframes after {

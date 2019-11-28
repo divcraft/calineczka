@@ -92,7 +92,7 @@ window.setInterval(() => {
     j++;
     if (i == 4) i = 1;
     if (j == 4) j = 1;
-}, 5000)
+}, 10000)
 
 const contentChanger = () => {
     slider1();
@@ -109,8 +109,8 @@ const contentChanger = () => {
 
 window.setTimeout(() => {
     slider2();
-    window.setInterval(slider2, 5000);
-}, 2500)
+    window.setInterval(slider2, 10000);
+}, 9000)
 
-window.setInterval(contentChanger, 5000)
+window.setInterval(contentChanger, 10000)
 window.onresize = () => contentChanger();
