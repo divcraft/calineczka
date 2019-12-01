@@ -3,13 +3,12 @@ const sliderImg2 = document.querySelector('.slider.img2');
 const sliderText = document.querySelector('.slider-text');
 const sliderH1 = document.querySelector('.slider-text h1');
 const sliderH2 = document.querySelector('.slider-text h2');
-
 let i = 1;
 let j = 2;
 
 // IMGAGES CHANGE
 
-const slider1 = () => {
+const sliderPhotoFront = () => {
     if (window.innerWidth <= 768) {
         sliderImg1.style.backgroundImage = `url(img/slider${i}-768.jpg)`;
     } else if (window.innerWidth > 768 && window.innerWidth <= 1366) {
@@ -19,7 +18,7 @@ const slider1 = () => {
     }
 }
 
-const slider2 = () => {
+const sliderPhotoBack = () => {
     if (window.innerWidth <= 768) {
         sliderImg2.style.backgroundImage = `url(img/slider${j}-768.jpg)`;
     } else if (window.innerWidth > 768 && window.innerWidth <= 1366) {
@@ -31,7 +30,7 @@ const slider2 = () => {
 
 // CONTENT CHANGE
 
-const text1 = () => {
+const text1TimeOrResize = () => {
     sliderH1.textContent = 'Kwiaciarnia "Calineczka"';
     sliderH2.textContent = 'Starannie dobrane kompozycje na każdą okazję';
     sliderText.style = '';
@@ -39,7 +38,7 @@ const text1 = () => {
     sliderH2.style = '';
 }
 
-const text2 = () => {
+const text2TimeOnly = () => {
     sliderH1.textContent = 'Służymy poradą w sprawie doboru kompozycji';
     sliderH2.textContent = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam';
     sliderText.style.backgroundColor = '#F2F2F2';
@@ -54,7 +53,11 @@ const text2 = () => {
     sliderH2.style.fontSize = '20px';
     sliderH2.style.fontStyle = 'italic';
     sliderH2.style.padding = '15px 0';
-    sliderH2.style.margin = '0';
+    sliderH2.style.margin = '0px';
+    sliderH2.style.maxWidth = '100%';
+}
+
+const text2TimeOrResize = () => {
     if (window.innerWidth <= 768) {
         sliderText.style.width = '';
         sliderText.style.left = '';
@@ -68,10 +71,13 @@ const text2 = () => {
     }
 }
 
-const text3 = () => {
+const text3TimeOnly = () => {
     sliderH1.textContent = 'Posiadamy specjalną ofertę na okoliczności ślubne i weselne';
     sliderH2.textContent = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam';
     sliderText.style.textAlign = 'right';
+}
+
+const text3TimeOrResize = () => {
     if (window.innerWidth <= 768) {
         sliderText.style.width = '';
         sliderText.style.left = '';
@@ -85,7 +91,7 @@ const text3 = () => {
     }
 }
 
-// ITERATIONS COUNTER
+// CHANGING FUNCTIONS
 
 window.setInterval(() => {
     i++;
@@ -94,23 +100,34 @@ window.setInterval(() => {
     if (j == 4) j = 1;
 }, 10000)
 
-const contentChanger = () => {
-    slider1();
+const timeContentChanger = () => {
+    sliderPhotoFront();
     if (i == 1) {
-        text1();
+        text1TimeOrResize();
     } else if (i == 2) {
-        text2();
+        text2TimeOnly();
+        text2TimeOrResize();
     } else if (i == 3) {
-        text3();
+        text3TimeOnly();
+        text3TimeOrResize();
     }
 }
 
-// CHANGING FUNCTIONS
+const sizeContentChanger = () => {
+    sliderPhotoFront();
+    if (i == 1) {
+        text1TimeOrResize();
+    } else if (i == 2) {
+        text2TimeOrResize();
+    } else if (i == 3) {
+        text3TimeOrResize();
+    }
+}
 
+window.setInterval(timeContentChanger, 10000)
 window.setTimeout(() => {
-    slider2();
-    window.setInterval(slider2, 10000);
-}, 9000)
+    sliderPhotoBack();
+    window.setInterval(sliderPhotoBack, 10000);
+}, 7000)
 
-window.setInterval(contentChanger, 10000)
-window.onresize = () => contentChanger();
+window.onresize = () => sizeContentChanger();

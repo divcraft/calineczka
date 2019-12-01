@@ -1,19 +1,25 @@
-/*MENU TOGGLER*/
+/*ACTIVE TOGGLERS*/
 
 .nav-down.active {
     display: block;
 }
 
-/*PRODUCT POPUP TOGGLER*/
-
 .offer-contact.active {
     transform: translateY(0);
 }
 
-/*SLIDER IMG*/
+/*SLIDER KEYFRAMES*/
 
 .slider.img1 {
     animation: sliderimg 10s infinite;
+}
+
+.slider-text {
+    animation: slidertxt 10s infinite;
+}
+
+.slider-text h1::after {
+    animation: after 30s infinite;
 }
 
 @keyframes sliderimg {
@@ -40,14 +46,8 @@
     100% {
         opacity: 0;
     }
-
 }
 
-/*SLIDER TXT*/
-
-.slider-text {
-    animation: slidertxt 10s infinite;
-}
 
 @keyframes slidertxt {
     0% {
@@ -73,12 +73,6 @@
     100% {
         opacity: 0;
     }
-}
-
-/*SLIDER AFTER*/
-
-.slider-text h1::after {
-    animation: after 30s infinite;
 }
 
 @keyframes after {
